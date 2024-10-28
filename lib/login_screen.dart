@@ -13,6 +13,7 @@ class LoginScreen extends StatelessWidget {
         create: (context) => LoginCubit(context),
         child: BlocBuilder<LoginCubit, LoginState>(
           builder: (context, state) {
+            final cubit = context.read<LoginCubit>();
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -49,6 +50,7 @@ class LoginScreen extends StatelessWidget {
                     ],
                   ),
                   child: TextField(
+                    controller: cubit.UsernameCtrl,
                     decoration: InputDecoration(
                       hintText: 'User Name',
                       filled: true,
@@ -84,6 +86,7 @@ class LoginScreen extends StatelessWidget {
                     ],
                   ),
                   child: TextField(
+                    controller: cubit.PasswordCtrl,
                     obscureText: true,
                     decoration: InputDecoration(
                       hintText: 'Password',

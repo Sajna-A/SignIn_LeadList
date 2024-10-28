@@ -2,7 +2,8 @@ import 'dart:convert';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:login_list/login_screen.dart';
+import 'package:login_list/list_screen.dart';
+// import 'package:login_list/login_screen.dart';
 import 'package:meta/meta.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -49,7 +50,7 @@ class LoginCubit extends Cubit<LoginState> {
           );
 
           Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) => LoginScreen()));
+              MaterialPageRoute(builder: (context) => ListScreen()));
         }
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -69,4 +70,9 @@ class LoginCubit extends Cubit<LoginState> {
       );
     }
   }
+}
+
+Future<String?> getToken() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  return prefs.getString("authToken");
 }
