@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:login_list/cubit2/cubit/leadlist_cubit.dart';
+import 'package:login_list/leadlist_cubit/cubit/leadlist_cubit.dart';
 
 class ListScreen extends StatelessWidget {
   const ListScreen({super.key});
